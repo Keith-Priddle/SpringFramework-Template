@@ -11,7 +11,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  
 @EnableWebMvc
 @Configuration
-@ComponentScan("com.mct")
+@ComponentScan(basePackages="com.mct")
 public class WebConfig implements WebMvcConfigurer {
  
 	//@Override
