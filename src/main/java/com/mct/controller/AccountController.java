@@ -18,14 +18,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mct.models.Account;
-import com.mct.services.AccountServices;
+import com.mct.services.AccountServicesImpl;
 
 @RestController
 public class AccountController {
  
-	private AccountServices accountServices;
+	private AccountServicesImpl accountServices;
 	
-	public AccountController(AccountServices accountServices) {
+	public AccountController(AccountServicesImpl accountServices) {
 		super();
 		this.accountServices = accountServices;
 	}
@@ -44,8 +44,18 @@ public class AccountController {
 	}
 	
 	
+	//@CrossOrigin(origins="http://localhost:8080")
+	//@RequestMapping(path="/Account", method=RequestMethod.GET,consumes="application/json", produces="application/json")
+	@GetMapping("/Account")
+	public ResponseEntity<List<Account>> getAllAccounts(){
+		List<Account> accounts = accountServices.getAllAccounts();
+		return new ResponseEntity<List<Account>>(accounts, HttpStatus.OK);
+	}
 	
-	/* @CrossOrigin(origins="http://localhost:4200")
+	
+	 
+	 
+	//@CrossOrigin(origins="http://localhost:4200")
 	@RequestMapping(path="/Account", method=RequestMethod.POST,consumes="application/json", produces="application/json")
 	public ResponseEntity<Account> createAccount(@RequestBody Account account){
 		 
@@ -53,12 +63,7 @@ public class AccountController {
 		return new ResponseEntity<Account>(account, HttpStatus.CREATED);
 	}
 	
-	@CrossOrigin(origins="http://localhost:4200")
-	@RequestMapping(path="/Account", method=RequestMethod.GET,consumes="application/json", produces="application/json")
-	public ResponseEntity<List<Account>> getAllAccounts(){
-		List<Account> accounts = accountServices.getAllAccounts();
-		return new ResponseEntity<List<Account>>(accounts, HttpStatus.OK);
-	}
+	/*
 	
 	@CrossOrigin(origins="http://localhost:4200")
 	@RequestMapping(path="/Account/h/{holderid}", method=RequestMethod.GET,produces="application/json")

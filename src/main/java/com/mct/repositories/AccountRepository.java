@@ -16,21 +16,12 @@ import org.springframework.stereotype.Repository;
 import com.mct.models.Account;
 
 
+
 @Repository
 //@RepositoryRestResource
 @RepositoryRestResource(collectionResourceRel = "Account", path = "Account")
 //@RepositoryRestResource(exported = false)
 public interface AccountRepository extends CrudRepository <Account, Long>{
 
-	@Query("select a from Account a where a.currency = :currency")
-	List<Account> findByCurrency(@Param("currency") String currency);
-	
-	@Query("select a from Account a")
-	List<Account> getAccounts();
-	
-	
-	@Query("select a from Account a where a.holderId = :holderId")
-	List<Account> getByAccountHolder(@Param("holderId") Long holderId);
-	
 	
 }

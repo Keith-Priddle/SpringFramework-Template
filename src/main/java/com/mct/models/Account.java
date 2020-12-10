@@ -15,7 +15,7 @@ import javax.persistence.GenerationType;
 
 
 @Entity
-@Table(name="ACCOUNT")
+@Table(name="account")
 public class Account {
 	
 	@Id
