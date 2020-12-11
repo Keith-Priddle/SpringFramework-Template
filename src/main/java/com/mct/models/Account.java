@@ -9,7 +9,6 @@ import javax.persistence.Table;
 
 import org.apache.bval.extras.constraints.checkdigit.IBAN;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.mct.config.LocalDateDeserializer;

@@ -1,13 +1,6 @@
 package com.mct.config;
 
-import java.util.Collection;
-import java.util.Collections;
-
-import org.springframework.context.annotation.Configuration;
 import org.springframework.data.mongodb.config.AbstractMongoClientConfiguration;
-
-import com.mongodb.ConnectionString;
-import com.mongodb.MongoClientSettings;
 
 //@Configuration
 public class MongoConfig extends AbstractMongoClientConfiguration{

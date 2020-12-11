@@ -9,16 +9,14 @@ import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-
-import com.mct.models.Account;
  
 @EnableWebMvc
 @Configuration
 @EnableAspectJAutoProxy
-@ComponentScan(basePackages="com.mct")
+@ComponentScan(basePackages={"com.mct","com.mct.config"})
 public class WebConfig implements WebMvcConfigurer {
  
-	//@Override
+	@Override
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
         converters.add(new MappingJackson2HttpMessageConverter());
     }

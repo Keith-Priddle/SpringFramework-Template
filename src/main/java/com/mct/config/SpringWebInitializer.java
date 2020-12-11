@@ -6,16 +6,18 @@ public class SpringWebInitializer extends AbstractAnnotationConfigDispatcherServ
  
     @Override
     protected Class[] getServletConfigClasses() {
-        return new Class[] { WebConfig.class };
+        return new Class[] { WebConfig.class, WebSecurityConfig.class };
     }
  
     @Override
     protected String[] getServletMappings() {
-        return new String[] { "/api/*" };
+        return new String[] { "/api/*"};
     }
  
     @Override
     protected Class[] getRootConfigClasses() {
         return new Class[] {};
     }
+    
+    
 }
