@@ -63,6 +63,16 @@ public class AccountController {
 		return new ResponseEntity<Account>(account, HttpStatus.CREATED);
 	}
 	
+	
+	
+	//@CrossOrigin(origins="http://localhost:4200")
+	@RequestMapping(path="/Account/{accountid}", method=RequestMethod.GET,produces="application/json")
+	public ResponseEntity<Account> getByAccountHolder(@PathVariable("accountid") Long accountId){
+		Account account = this.accountServices.getAccountById(accountId);
+		return new ResponseEntity<Account>(account, HttpStatus.OK);
+	}
+	
+	
 	/*
 	
 	@CrossOrigin(origins="http://localhost:4200")

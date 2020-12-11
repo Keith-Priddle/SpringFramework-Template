@@ -8,6 +8,13 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 import org.apache.bval.extras.constraints.checkdigit.IBAN;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.mct.config.LocalDateDeserializer;
+import com.mct.config.LocalDateSerializer;
+
 import javax.persistence.Id;
 import java.math.BigDecimal;
 import javax.persistence.GeneratedValue;
@@ -37,7 +44,11 @@ public class Account {
 	//@Type(type = "Currency")
 	private String currency;
 	
+	
+	
 	@Column(name="OPENDATE")
+	@JsonDeserialize(using = LocalDateDeserializer.class)
+	@JsonSerialize(using = LocalDateSerializer.class)
 	private LocalDate openDate;
 	
 	@Column(name="ACTIVE")

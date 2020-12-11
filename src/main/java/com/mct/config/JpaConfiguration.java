@@ -5,6 +5,7 @@ import javax.sql.DataSource;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
@@ -14,6 +15,7 @@ import org.springframework.orm.jpa.vendor.Database;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 
 @Configuration
+@PropertySource("classpath:/com/mct/config/application.properties")
 @EnableJpaRepositories("com.mct.repositories")
 public class JpaConfiguration {
     @Bean
@@ -21,7 +23,7 @@ public class JpaConfiguration {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
         dataSource.setUrl("jdbc:mysql://212.227.94.224:3306/Accounts?serverTimezone=UTC");
-        dataSource.setUsername( "javatest" );
+        dataSource.setUsername("javatest");
         dataSource.setPassword( "Galaxy196512" );
         return dataSource;
     }
